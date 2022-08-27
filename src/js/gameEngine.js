@@ -1,15 +1,19 @@
 function start(state, game) {
   game.createSuperman(state.superman);
 
-  window.requestAnimationFrame(gameLoop.bind(null, state, game));
+  window.requestAnimationFrame(timestamp => gameLoop( state, game,timestamp));
 }
 
-function gameLoop(state, game) {
+function gameLoop(state, game,timestamp) {
   const { superman } = state;
   const { supermanElement } = game;
   modifySupermanPosition(state, game);
+   
+  if(timestamp > state.robotStats.nextSpawnTimestamp){
+      game.createRobots(state.robotStats);
+      state.robotStats.nextSpawnTimestamp = timestamp + Math.random() *  state.robotStats.maxSpawnInterval;
+  }
 
-  game.createRobots(state.robotStats);
 
   supermanElement.style.left = superman.startX + "px";
   supermanElement.style.right = superman.startX + "px";

@@ -12,6 +12,8 @@ function initState(){
         robotStats:{
            width:200,
            height:50,
+           nextSpawnTimestamp:0,
+           maxSpawnInterval:1500,
         },
         keys:{
             'ArrowLeft':false,

@@ -10,7 +10,9 @@ function gameLoop(state, game, timestamp) {
 
   game.scoreScreen.textContent = `${state.score} pts.`;
   game.healthScreen.textContent = `${state.superman.health} HP`;
-  game.gameOverScreen.textContent = `Game over!You have ${state.score} pts.`;
+  game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score.toFixed(0)}pts.</h2>`;
+
+
    
   
  
@@ -33,10 +35,10 @@ function gameLoop(state, game, timestamp) {
    let robotElements = document.querySelectorAll('.robot');
   document.querySelectorAll(".robot").forEach((robot) => {
     let startX = parseInt(robot.style.left);
-    if(detectCollision(supermanElement,robot)){
+    if(detectCollision(supermanElement,robot,game)){
         state.superman.health -= 10;
         robot.remove();
-      
+        
  
        
        
@@ -50,10 +52,12 @@ function gameLoop(state, game, timestamp) {
      document.querySelectorAll('.laser').forEach(laser => {
        let  startX  = parseInt(laser.style.left);
      robotElements.forEach((robot) => {
-           if(detectCollision(robot,laser)){
+           if(detectCollision(robot,laser,)){
             state.score += state.killScore;
             robot.remove();
             laser.remove();
+
+        
            }
      });
    startX >  game.gameScreen.offsetWidth ? laser.remove() : laser.style.left = startX + state.laser.speed + "px";

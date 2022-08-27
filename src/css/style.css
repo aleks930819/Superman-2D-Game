@@ -56,6 +56,12 @@ body{
     
 }
 
+.robot{
+    position: absolute;
+    background-image: url('../img/superman.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}
 
 
  .superman{

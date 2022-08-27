@@ -8,7 +8,19 @@ function initState(){
             startY:200,
             speed:7,
         },
-        keys:[]
+
+        robotStats:{
+           width:200,
+           height:50,
+        },
+        keys:{
+            'ArrowLeft':false,
+            'ArrowDown':false,
+            'ArrowRight':false,
+            'ArrowUp':false,
+        }
+
+        
 
     }
     return state;

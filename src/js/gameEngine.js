@@ -9,6 +9,10 @@ function gameLoop(state, game, timestamp) {
   const { supermanElement } = game;
   modifySupermanPosition(state, game);
 
+   if(state.keys.Space){
+     game.createLaserShout(superman,state.laser)
+   }
+
   if (timestamp > state.robotStats.nextSpawnTimestamp) {
     game.createRobots(state.robotStats);
     state.robotStats.nextSpawnTimestamp =

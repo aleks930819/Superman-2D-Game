@@ -73,3 +73,9 @@ body{
     
  
 }
+.laser{
+    position:absolute;
+    background-image: url('../img/image.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+}

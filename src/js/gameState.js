@@ -16,11 +16,16 @@ function initState(){
            maxSpawnInterval:1500,
            speed:8,
         },
+        laser: {
+              width:25,
+              height:25,
+        },
         keys:{
             'ArrowLeft':false,
             'ArrowDown':false,
             'ArrowRight':false,
             'ArrowUp':false,
+            'Space':false,
         }
 
         

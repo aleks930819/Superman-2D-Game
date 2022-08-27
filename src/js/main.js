@@ -6,6 +6,7 @@ let game = initGameObject();
     'ArrowDown',
     'ArrowRight',
     'ArrowUp',
+    'Space',
 
    ]
  

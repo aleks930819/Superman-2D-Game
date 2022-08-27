@@ -20,6 +20,21 @@ function initGameObject() {
       gameScreen.appendChild(supermanElement);
       return supermanElement;
     },
+
+    createLaserShout(superman,laser) {
+     let laserElement  = document.createElement("div");
+     laserElement.classList.add('laser');
+     laserElement.style.left = superman.startX + (superman.width - 75) + "px";
+     laserElement.style.top = superman.startY + superman.height / 4  + "px";
+     laserElement.style.width = laser.width + "px";
+     laserElement.style.height = laser.height + "px";
+
+
+
+
+     gameScreen.appendChild(laserElement);
+    },
+
     createRobots(stats){
         const robotElement = document.createElement("div");
         robotElement.classList.add('robot');

@@ -10,6 +10,7 @@ function initState(){
             startX:100,
             startY:200,
             speed:7,
+            health:100,
         },
 
         robotStats:{
@@ -17,7 +18,7 @@ function initState(){
            height:50,
            nextSpawnTimestamp:0,
            maxSpawnInterval:1500,
-           speed:5,
+           speed:2,
         },
         laser: {
               width: 90,

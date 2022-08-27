@@ -9,8 +9,13 @@ function gameLoop(state, game, timestamp) {
   const { supermanElement } = game;
 
   game.scoreScreen.textContent = `${state.score} pts.`;
-
+  game.healthScreen.textContent = `${state.superman.health} HP`;
+  game.gameOverScreen.textContent = `Game over!You have ${state.score} pts.`;
+   
+  
+ 
   modifySupermanPosition(state, game);
+  
 
    if(state.keys.Space){
 
@@ -29,7 +34,12 @@ function gameLoop(state, game, timestamp) {
   document.querySelectorAll(".robot").forEach((robot) => {
     let startX = parseInt(robot.style.left);
     if(detectCollision(supermanElement,robot)){
-        state.gameOver= true;
+        state.superman.health -= 10;
+        robot.remove();
+      
+ 
+       
+       
    }
 
     startX > 0 ? robot.style.left = startX - state.robotStats.speed + "px" : robot.remove();
@@ -53,9 +63,10 @@ function gameLoop(state, game, timestamp) {
   supermanElement.style.right = superman.startX + "px";
   supermanElement.style.bottom = superman.startX + "px"; 
   supermanElement.style.top = superman.startY + "px";
-   if(state.gameOver){
-       alert('Game Over');
-   } else {
+  if(state.superman.health === 0){
+    game.gameScreen.classList.add("hidden");
+     game.gameOverScreen.classList.remove("hidden");
+  }  else {
 
        window.requestAnimationFrame(gameLoop.bind(null, state, game));
    }

@@ -56,10 +56,14 @@ body{
     
 }
 
-.game-screen img{
-    width: 17rem;
-    height: auto;
-   
-    
-}
 
+
+ .superman{
+
+    position: absolute;
+    background-image: url('../img/superman.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+    
+ 
+}

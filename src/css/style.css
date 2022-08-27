@@ -15,16 +15,16 @@
 body{
     font-family: 'Press Start 2P', sans-serif;
     overflow: hidden; ;
+   
     
 }
-
-
 .start-game{
     position: relative;
-    background-image: url('../img/logo.jpg');
+    background-image: url('../img/logo3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
-    background-position-y: -33rem;
+    object-fit: cover;
+    background-position-y: -43rem;
     width: 100vw;
     height: 100vh;
     text-transform: uppercase;
@@ -32,9 +32,15 @@ body{
     padding-top: 42rem;
     cursor: pointer;
     color:#fff;
+    z-index: 10;
+  width: 100vw;
+    height: 100vh; 
+    position: relative;
 
     
 }
+
+
 
 .start-game h1{
  position: absolute;

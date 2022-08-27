@@ -11,24 +11,25 @@ function gameLoop(state,game){
     const {supermanElement} = game;
 
         if(state.keys.ArrowLeft){
-           superman.startX -= superman.speed;
+           superman.startX = Math.max(superman.startX - superman.speed,0);
         }
 
 
         
         if(state.keys.ArrowDown){
-            superman.startY += superman.speed;
+            superman.startY = Math.min(superman.startY + superman.speed, game.gameScreen.offsetHeight  - superman.height);
          }
 
          
         if(state.keys.ArrowRight){
-            superman.startX += superman.speed;
+
+             superman.startX = Math.min(superman.startX + superman.speed, game.gameScreen.offsetWidth - superman.width);
          }
  
  
          
-         if(state.keys.ArrowUp){
-             superman.startY -= superman.speed;
+         if(state.keys.ArrowUp  && superman.startY > 0){
+             superman.startY  = Math.max(superman.startY - superman.speed,0);
           }
   
  

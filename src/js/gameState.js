@@ -21,6 +21,14 @@ function initState(){
            maxSpawnInterval:1500,
            speed:2,
         },
+        clouds:{
+            width:250,
+            height:200,
+            nextSpawnTimestamp:0,
+            maxSpawnInterval:4000,
+            speed:4,
+        },
+
         laser: {
               width: 90,
               height:90,

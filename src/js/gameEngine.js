@@ -54,7 +54,24 @@ if(state.score ===  1000){
         state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
      }
    }
-    
+     
+     if (timestamp > state.clouds.nextSpawnTimestamp) {
+      game.createCloud(state.clouds);
+      state.clouds.nextSpawnTimestamp = timestamp + Math.random() * state.clouds.maxSpawnInterval;
+      cloudTime = 0;
+  } else {
+      cloudTime++;
+  }
+
+ 
+  let cloudElement = document.querySelectorAll('.cloud');
+  cloudElement.forEach(cloud => {
+      let startX = parseInt(cloud.style.left);
+ 
+      startX > 0 ? cloud.style.left = startX - state.clouds.speed + "px" : cloud.remove();
+      
+  });
+
   if (timestamp > state.robotStats.nextSpawnTimestamp) {
     game.createRobots(state.robotStats);
     state.robotStats.nextSpawnTimestamp =

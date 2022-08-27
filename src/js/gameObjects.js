@@ -47,9 +47,20 @@ function initGameObject() {
 
 
 
+
      gameScreen.appendChild(laserElement);
     },
-
+    
+    createCloud(stats) {
+      const cloudElement = document.createElement('div');
+      cloudElement.classList.add('cloud');
+      cloudElement.style.width = stats.width + 'px';
+      cloudElement.style.height = stats.height + 'px';
+      cloudElement.style.left = gameScreen.offsetWidth + 'px';
+      // cloudElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight / 3 - stats.height)) + 'px';
+      cloudElement.style.top = 30;
+      gameScreen.appendChild(cloudElement);
+  },
     createRobots(stats){
         const robotElement = document.createElement("div");
         robotElement.classList.add('robot');
@@ -60,6 +71,8 @@ function initGameObject() {
 
         gameScreen.appendChild(robotElement);
 
-    }
+    },
+ 
+  
   };
 }

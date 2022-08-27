@@ -66,12 +66,21 @@ body{
 
 .robot{
     position: absolute;
-    /* background-image: url('../img/cloud.png'); */
     background-image: url('../img/robot.png');
     background-size: contain;
     background-repeat: no-repeat;
  
 }
+
+.cloud{
+    position: absolute;
+    background-image: url('../img/cloud.png');
+    background-size: contain;
+    background-repeat: no-repeat;
+
+  
+}
+
 
 
  .superman{

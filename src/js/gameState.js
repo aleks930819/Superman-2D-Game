@@ -14,8 +14,8 @@ function initState(){
         },
 
         robotStats:{
-           width:200,
-           height:50,
+           width:100,
+           height:100,
            nextSpawnTimestamp:0,
            maxSpawnInterval:1500,
            speed:2,

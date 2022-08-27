@@ -19,6 +19,7 @@ function initState(){
         laser: {
               width:25,
               height:25,
+              speed:15,
         },
         keys:{
             'ArrowLeft':false,

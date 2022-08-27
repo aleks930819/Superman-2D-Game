@@ -18,7 +18,7 @@ function gameLoop(state, game, timestamp) {
     state.robotStats.nextSpawnTimestamp =
       timestamp + Math.random() * state.robotStats.maxSpawnInterval;
   }
-
+   let robotElements = document.querySelectorAll('.robot');
   document.querySelectorAll(".robot").forEach((robot) => {
     let startX = parseInt(robot.style.left);
 
@@ -26,7 +26,18 @@ function gameLoop(state, game, timestamp) {
   
     
   });
-
+    
+     document.querySelectorAll('.laser').forEach(laser => {
+       let  startX  = parseInt(laser.style.left);
+     robotElements.forEach((robot) => {
+           if(detectCollision(robot,laser)){
+            robot.remove();
+            laser.remove();
+           }
+     });
+   startX >  game.gameScreen.offsetWidth ? laser.remove() : laser.style.left = startX + state.laser.speed + "px";
+     });
+   
   supermanElement.style.left = superman.startX + "px";
   supermanElement.style.right = superman.startX + "px";
   supermanElement.style.bottom = superman.startX + "px"; 
@@ -59,4 +70,13 @@ function modifySupermanPosition(state, game) {
   if (state.keys.ArrowUp && superman.startY > 0) {
     superman.startY = Math.max(superman.startY - superman.speed, 0);
   }
+}
+
+function  detectCollision(objectA,objectB){
+    let first =  objectA.getBoundingClientRect();
+    let second =  objectB.getBoundingClientRect();
+
+    let hasCollision = !(first.top > second.top || first.bottom < second.top || first.right  < second.left || first.left > second.right);
+
+    return hasCollision;
 }

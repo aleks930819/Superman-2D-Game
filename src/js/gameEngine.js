@@ -1,23 +1,31 @@
 function start(state, game) {
   game.createSuperman(state.superman);
 
-  window.requestAnimationFrame(timestamp => gameLoop( state, game,timestamp));
+  window.requestAnimationFrame((timestamp) => gameLoop(state, game, timestamp));
 }
 
-function gameLoop(state, game,timestamp) {
+function gameLoop(state, game, timestamp) {
   const { superman } = state;
   const { supermanElement } = game;
   modifySupermanPosition(state, game);
-   
-  if(timestamp > state.robotStats.nextSpawnTimestamp){
-      game.createRobots(state.robotStats);
-      state.robotStats.nextSpawnTimestamp = timestamp + Math.random() *  state.robotStats.maxSpawnInterval;
+
+  if (timestamp > state.robotStats.nextSpawnTimestamp) {
+    game.createRobots(state.robotStats);
+    state.robotStats.nextSpawnTimestamp =
+      timestamp + Math.random() * state.robotStats.maxSpawnInterval;
   }
 
+  document.querySelectorAll(".robot").forEach((robot) => {
+    let startX = parseInt(robot.style.left);
+
+    startX > 0 ? robot.style.left = startX - state.robotStats.speed + "px" : robot.remove();
+  
+    
+  });
 
   supermanElement.style.left = superman.startX + "px";
   supermanElement.style.right = superman.startX + "px";
-  supermanElement.style.bottom = superman.startX + "px";
+  supermanElement.style.bottom = superman.startX + "px"; 
   supermanElement.style.top = superman.startY + "px";
 
   window.requestAnimationFrame(gameLoop.bind(null, state, game));

@@ -8,11 +8,39 @@ function gameLoop(state, game, timestamp) {
   const { superman } = state;
   const { supermanElement } = game;
 
-  game.scoreScreen.textContent = `${state.score} pts.`;
-  game.healthScreen.textContent = `${state.superman.health} HP`;
+  game.scoreScreen.textContent = `${state.score}PTS.`;
+  game.healthScreen.textContent = `${state.superman.health}HP`;
   game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score.toFixed(0)}pts.</h2>`;
+  game.levelScreen.textContent = `${state.level}LV`;
 
+ if(state.score === 250){
+   state.level = 2;
+   
+   state.robotStats.speed = 3;
+  }
+  
+  if(state.score === 500){
+    state.level = 3;
+  state.robotStats.width = 400;
+  state.robotStats.speed = 4;
 
+}
+  
+
+if(state.score === 750){
+  state.level = 4;
+  state.robotStats.speed = 5;
+  state.robotStats.width = 700;
+
+}
+  
+
+if(state.score ===  1000){
+  state.level = 5;
+  state.robotStats.speed = 6;
+
+}
+  
    
   
  
@@ -54,7 +82,11 @@ function gameLoop(state, game, timestamp) {
      robotElements.forEach((robot) => {
            if(detectCollision(robot,laser,)){
             state.score += state.killScore;
-            robot.remove();
+            robot.style.backgroundImage = 'url("/src/img/blast.png")';
+            console.log(robot);
+            setTimeout(() =>{
+              robot.remove();
+            },'250'  );
             laser.remove();
 
         

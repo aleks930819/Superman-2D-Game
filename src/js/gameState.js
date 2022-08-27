@@ -3,6 +3,7 @@ function initState(){
     const state = {
         gameover:false,
         score:0,
+        level:1,
         killScore:10,
         superman: {
             width: 250,

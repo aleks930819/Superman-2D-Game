@@ -3,6 +3,7 @@ function initGameObject() {
   const gameScreen = document.querySelector(".game-screen");
   const scoreScreen =  document.querySelector(".score");
   const healthScreen =  document.querySelector(".health");
+  const levelScreen = document.querySelector(".level");
   const gameOverScreen =  document.querySelector(".game-over");
   const gameOverScreenText =  document.querySelector(".game-over--text");
   const supermanBody = document.querySelector(".superman");
@@ -18,6 +19,7 @@ function initGameObject() {
     gameOverScreen,
     gameOverScreenText,
     supermanBody,
+    levelScreen,
     createSuperman(initialState) {
       let supermanElement = document.createElement("div");
       supermanElement.classList.add("superman");

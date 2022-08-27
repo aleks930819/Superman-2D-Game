@@ -106,6 +106,15 @@ body{
     border: 7px solid black;
     padding: 2rem 2rem;
 }
+.level{
+    position: absolute;
+    top:1rem;
+    left:70rem;
+    font-size: 5rem;
+    border: 7px solid black;
+    padding: 2rem 2rem;
+
+}
 .game-over{
     display:flex;
     text-align: center;

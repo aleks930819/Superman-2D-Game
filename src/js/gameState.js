@@ -1,6 +1,9 @@
 
 function initState(){
     const state = {
+        gameover:false,
+        score:0,
+        killScore:10,
         superman: {
             width: 250,
             height: 80,
@@ -14,12 +17,14 @@ function initState(){
            height:50,
            nextSpawnTimestamp:0,
            maxSpawnInterval:1500,
-           speed:8,
+           speed:5,
         },
         laser: {
-              width:25,
-              height:25,
+              width: 90,
+              height:90,
               speed:15,
+              nextSpawnTimestamp:0,
+              firRate:250,
         },
         keys:{
             'ArrowLeft':false,

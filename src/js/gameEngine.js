@@ -7,12 +7,19 @@ function start(state, game) {
 function gameLoop(state, game, timestamp) {
   const { superman } = state;
   const { supermanElement } = game;
+
+  game.scoreScreen.textContent = `${state.score} pts.`;
+
   modifySupermanPosition(state, game);
 
    if(state.keys.Space){
-     game.createLaserShout(superman,state.laser)
-   }
 
+     if(timestamp > state.laser.nextSpawnTimestamp){
+        game.createLaserShout(superman, state.laser);
+        state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
+     }
+   }
+    
   if (timestamp > state.robotStats.nextSpawnTimestamp) {
     game.createRobots(state.robotStats);
     state.robotStats.nextSpawnTimestamp =
@@ -21,6 +28,9 @@ function gameLoop(state, game, timestamp) {
    let robotElements = document.querySelectorAll('.robot');
   document.querySelectorAll(".robot").forEach((robot) => {
     let startX = parseInt(robot.style.left);
+    if(detectCollision(supermanElement,robot)){
+        state.gameOver= true;
+   }
 
     startX > 0 ? robot.style.left = startX - state.robotStats.speed + "px" : robot.remove();
   
@@ -31,6 +41,7 @@ function gameLoop(state, game, timestamp) {
        let  startX  = parseInt(laser.style.left);
      robotElements.forEach((robot) => {
            if(detectCollision(robot,laser)){
+            state.score += state.killScore;
             robot.remove();
             laser.remove();
            }
@@ -42,8 +53,12 @@ function gameLoop(state, game, timestamp) {
   supermanElement.style.right = superman.startX + "px";
   supermanElement.style.bottom = superman.startX + "px"; 
   supermanElement.style.top = superman.startY + "px";
+   if(state.gameOver){
+       alert('Game Over');
+   } else {
 
-  window.requestAnimationFrame(gameLoop.bind(null, state, game));
+       window.requestAnimationFrame(gameLoop.bind(null, state, game));
+   }
 }
 
 function modifySupermanPosition(state, game) {

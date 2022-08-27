@@ -1,10 +1,13 @@
 function initGameObject() {
   const startGame = document.querySelector(".start-game");
   const gameScreen = document.querySelector(".game-screen");
+  const scoreScreen =  document.querySelector(".score");
+
 
   return {
     startGame,
     gameScreen,
+    scoreScreen,
     createSuperman(initialState) {
       let supermanElement = document.createElement("div");
       supermanElement.classList.add("superman");
@@ -24,8 +27,8 @@ function initGameObject() {
     createLaserShout(superman,laser) {
      let laserElement  = document.createElement("div");
      laserElement.classList.add('laser');
-     laserElement.style.left = superman.startX + (superman.width - 95) + "px";
-     laserElement.style.top = superman.startY + superman.height / 4  + "px";
+     laserElement.style.left = superman.startX + (superman.width - 105) + "px";
+     laserElement.style.top = superman.startY + superman.height / 15 + "px";
      laserElement.style.width = laser.width + "px";
      laserElement.style.height = laser.height + "px";
 

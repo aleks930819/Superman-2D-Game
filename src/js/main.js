@@ -1,7 +1,7 @@
+let state = initState();
+let game = initGameObject();
 
-const startGame =  document.querySelector('.start-game');
-
-
-startGame.addEventListener('click',(e) =>{
-          e.currentTarget.classList.add('hidden');
+game.startGame.addEventListener("click", () => {
+  game.startGame.classList.add("hidden");
+  game.gameScreen.classList.remove("hidden");
 });

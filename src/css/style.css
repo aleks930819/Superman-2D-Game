@@ -14,27 +14,52 @@
 
 body{
     font-family: 'Press Start 2P', sans-serif;
+    
 }
 
-.game-screen{
-    background-image: url('../img/background.jpg');
-    width: 100vw;
-    height: 100vh;
-    background-repeat: no-repeat;
-    background-size: cover;
-    display: flex;
-    justify-content: center;
-}
 
 .start-game{
+    position: relative;
+    background-image: url('../img/logo.jpg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position-y: -33rem;
+    width: 100vw;
+    height: 100vh;
     text-transform: uppercase;
-    font-size: 3.5rem;
+    font-size: 2.5rem;
     padding-top: 42rem;
     cursor: pointer;
+    color:#fff;
 
     
+}
+
+.start-game h1{
+ position: absolute;
+ top:50%;
+ left:30%;
+
+
 }
 
 .hidden{
     display: none;
 }
+
+
+.game-screen{
+    background-image: url('../img/background.jpg');
+    width: 100vw;
+    height: 100vh;
+   
+    
+}
+
+.game-screen img{
+    width: 17rem;
+    height: auto;
+   
+    
+}
+

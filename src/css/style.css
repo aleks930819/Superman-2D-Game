@@ -59,7 +59,7 @@ body{
 
 
 .game-screen{
-    /* background-image: url('../img/sea.png'); */
+    /* background-image: url('../img/background.jpg'); */
     background-color: var(--color-sky);
     width: 100vw;
     height: 100vh;

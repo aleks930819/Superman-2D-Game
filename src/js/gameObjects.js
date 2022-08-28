@@ -93,7 +93,7 @@ function initGameObject() {
         robotElement.style.width = stats.width + "px";
         robotElement.style.height = stats.height + "px";
         robotElement.style.left = gameScreen.offsetWidth - stats.width + "px"; 
-        robotElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight - stats.height )) + "px";
+        robotElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight - stats.height + 10)) + "px";
 
         gameScreen.appendChild(robotElement);
 

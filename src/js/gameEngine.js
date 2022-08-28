@@ -13,6 +13,8 @@ function gameLoop(state, game, timestamp) {
   game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score.toFixed(0)}pts.</h2>`;
   game.levelScreen.textContent = `${state.level}LV`;
 
+  // Level's state
+
  if(state.score === 250){
    state.level = 2;
    state.robotStats.speed = 3;
@@ -80,10 +82,13 @@ greenCriptorElement.forEach(cripto => {
     let startY = parseInt(cripto.style.top);
     if(detectCollision(supermanElement,cripto)){
       state.superman.speed = 3;
+      state.laser.speed = 3;
 
       setTimeout(() => {
         state.superman.speed = 7;
-      },'3000')
+        state.laser.speed = 15;
+
+      },'6000')
       cripto.remove();
 
     } 
@@ -114,7 +119,7 @@ redCriptorElement.forEach(cripto => {
         state.superman.speed = 7;
         state.laser.speed = 15;
 
-      },'3000')
+      },'5000')
       cripto.remove();
 
     } 
@@ -139,9 +144,6 @@ redCriptorElement.forEach(cripto => {
     if(detectCollision(supermanElement,robot)){
         state.superman.health -= 10;
         robot.remove();
-        
- 
-       
        
    }
 
@@ -151,7 +153,11 @@ redCriptorElement.forEach(cripto => {
   
     
   });
+  
+
+
     
+  
      document.querySelectorAll('.laser').forEach(laser => {
        let  startX  = parseInt(laser.style.left);
      robotElements.forEach((robot) => {
@@ -160,7 +166,6 @@ redCriptorElement.forEach(cripto => {
                     audio.play();
             state.score += state.killScore;
             robot.style.backgroundImage = 'url("/src/img/blast.png")';
-            console.log(robot);
             setTimeout(() =>{
               robot.remove();
             },'250'  );

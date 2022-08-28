@@ -6,8 +6,6 @@ function initGameObject() {
   const levelScreen = document.querySelector(".level");
   const gameOverScreen =  document.querySelector(".game-over");
   const gameOverScreenText =  document.querySelector(".game-over--text");
-  const supermanBody = document.querySelector(".superman");
-
 
 
 
@@ -18,7 +16,6 @@ function initGameObject() {
     healthScreen,
     gameOverScreen,
     gameOverScreenText,
-    supermanBody,
     levelScreen,
     createSuperman(initialState) {
       let supermanElement = document.createElement("div");
@@ -39,30 +36,18 @@ function initGameObject() {
     createLaserBlast(superman,laser) {
      let laserElement  = document.createElement("div");
      laserElement.classList.add('laser');
-     laserElement.style.left = superman.startX + (superman.width - 105) + "px";
+     laserElement.style.left = superman.startX + (superman.width - 55) + "px";
      laserElement.style.top = superman.startY + superman.height / 13 + "px";
 
      laserElement.style.width = laser.width + "px";
      laserElement.style.height = laser.height + "px";
 
-
-
-
-
      gameScreen.appendChild(laserElement);
+     return laserElement;
     },
 
 
-    
-  //   createCloud(stats) {
-  //     const cloudElement = document.createElement('div');
-  //     cloudElement.classList.add('cloud');
-  //     cloudElement.style.width = stats.width + 'px';
-  //     cloudElement.style.height = stats.height + 'px';
-  //     cloudElement.style.left = gameScreen.offsetWidth + 'px';
-  //      cloudElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight / 3 - stats.height)) + 'px';
-  //     gameScreen.appendChild(cloudElement);
-  // },
+
    
    createGreenCripto(stats) {
     const greenCriptorElement = document.createElement('div');
@@ -72,6 +57,8 @@ function initGameObject() {
     greenCriptorElement.style.left =  Math.floor(Math.random() * (gameScreen.offsetWidth - stats.width)) + 'px'
     greenCriptorElement.style.top =   0 - stats.height + 'px';
     gameScreen.appendChild(greenCriptorElement);
+
+    return greenCriptorElement
 
    },
 
@@ -84,12 +71,13 @@ function initGameObject() {
     redCriptorElement.style.top =   0 - stats.height + 'px';
     gameScreen.appendChild(redCriptorElement);
 
+    return redCriptorElement;
    },
 
 
 
     createRobots(stats){
-        const robotElement = document.createElement("div");
+        let robotElement = document.createElement("div");
         robotElement.classList.add('robot');
         robotElement.style.width = stats.width + "px";
         robotElement.style.height = stats.height + "px";
@@ -97,7 +85,7 @@ function initGameObject() {
         robotElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight - stats.height + 10)) + "px";
 
         gameScreen.appendChild(robotElement);
-
+           return robotElement;
     },
  
   

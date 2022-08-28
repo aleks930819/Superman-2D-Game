@@ -6,8 +6,8 @@ function initState(){
         level:1,
         killScore:10,
         superman: {
-            width: 250,
-            height: 250,
+            width: 150,
+            height: 220,
             startX:100,
             startY:200,
             speed:7,
@@ -16,18 +16,12 @@ function initState(){
 
         robotStats:{
            width:100,
-           height:100,
+           height:80,
            nextSpawnTimestamp:0,
            maxSpawnInterval:1500,
            speed:2,
         },
-        clouds:{
-            width:200,
-            height:200,
-            nextSpawnTimestamp:0,
-            maxSpawnInterval:500,
-            speed:7,
-        },
+       
           green:{
             width: 54,
             height: 43,

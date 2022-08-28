@@ -1,78 +1,68 @@
 function start(state, game) {
   game.createSuperman(state.superman);
-
   window.requestAnimationFrame((timestamp) => gameLoop(state, game, timestamp));
 }
 
 function gameLoop(state, game, timestamp) {
   const { superman } = state;
   const { supermanElement } = game;
-
   game.scoreScreen.textContent = `${state.score}PTS.`;
   game.healthScreen.textContent = `${state.superman.health}HP`;
   game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score.toFixed(0)}pts.</h2>`;
   game.levelScreen.textContent = `${state.level}LV`;
-
+  
   // Level's state
+  
+  if(state.score === 250){
+    state.level = 2;
+    state.robotStats.speed = 3;
+    state.robotStats.width = 120 ;
+    state.robotStats.height = 100;
 
- if(state.score === 250){
-   state.level = 2;
-   state.robotStats.speed = 3;
+    
+  
   }
   
   if(state.score === 500){
     state.level = 3;
-  state.robotStats.speed = 4;
-
-}
+    state.robotStats.speed = 4;
+    
+  }
   
-
-if(state.score === 750){
-  state.level = 4;
-  state.robotStats.speed = 4;
-
-}
   
-
-if(state.score ===  1000){
-  state.level = 5;
-  state.robotStats.speed = 6;
-
-}
+  if(state.score === 750){
+    state.level = 4;
+    state.robotStats.speed = 4;
+    
+  }
   
-   
   
- 
+  if(state.score ===  1000){
+    state.level = 5;
+    state.robotStats.speed = 6;
+    
+  }
+  
+  
+  
+  
   modifySupermanPosition(state, game);
   
+  
+  if(state.keys.Space){
+  
 
-   if(state.keys.Space){
- 
-
-     if(timestamp > state.laser.nextSpawnTimestamp){
-        game.createLaserBlast(superman, state.laser);
-        state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
-     }
+    
+    
+    if(timestamp > state.laser.nextSpawnTimestamp){
+      game.createLaserBlast(superman, state.laser);
+      state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
+    }
    } else {
     game.supermanElement.style.backgroundImage = 'url("./img/superman-stand.png")';
 
    }
-     // Clouds
-  //    if (timestamp > state.clouds.nextSpawnTimestamp) {
-  //     game.createCloud(state.clouds);
-  //     state.clouds.nextSpawnTimestamp = timestamp + Math.random() * state.clouds.maxSpawnInterval;
   
-  // }
-
- 
-  // let cloudElement = document.querySelectorAll('.cloud');
-  // cloudElement.forEach(cloud => {
-  //     let startX = parseInt(cloud.style.left);
- 
-  //     startX > 0 ? cloud.style.left = startX - state.clouds.speed + "px" : cloud.remove();
-      
-  // });
-
  // Green Cripto
   if (timestamp > state.green.nextSpawnTimestamp) {
     game.createGreenCripto(state.green);

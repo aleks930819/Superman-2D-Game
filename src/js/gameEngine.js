@@ -98,6 +98,8 @@ if(state.score ===  1000){
        let  startX  = parseInt(laser.style.left);
      robotElements.forEach((robot) => {
            if(detectCollision(robot,laser,)){
+            const audio = new Audio('/src/img/blast.mp3');
+                    audio.play();
             state.score += state.killScore;
             robot.style.backgroundImage = 'url("/src/img/blast.png")';
             console.log(robot);

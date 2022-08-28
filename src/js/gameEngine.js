@@ -15,13 +15,11 @@ function gameLoop(state, game, timestamp) {
 
  if(state.score === 250){
    state.level = 2;
-   
    state.robotStats.speed = 3;
   }
   
   if(state.score === 500){
     state.level = 3;
-  state.robotStats.width = 400;
   state.robotStats.speed = 4;
 
 }
@@ -29,8 +27,7 @@ function gameLoop(state, game, timestamp) {
 
 if(state.score === 750){
   state.level = 4;
-  state.robotStats.speed = 5;
-  state.robotStats.width = 700;
+  state.robotStats.speed = 4;
 
 }
   
@@ -50,17 +47,15 @@ if(state.score ===  1000){
    if(state.keys.Space){
 
      if(timestamp > state.laser.nextSpawnTimestamp){
-        game.createLaserShout(superman, state.laser);
+        game.createLaserBlast(superman, state.laser);
         state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
      }
    }
-     
+     // Clouds
      if (timestamp > state.clouds.nextSpawnTimestamp) {
       game.createCloud(state.clouds);
       state.clouds.nextSpawnTimestamp = timestamp + Math.random() * state.clouds.maxSpawnInterval;
-      cloudTime = 0;
-  } else {
-      cloudTime++;
+  
   }
 
  
@@ -72,6 +67,66 @@ if(state.score ===  1000){
       
   });
 
+ // Green Cripto
+  if (timestamp > state.green.nextSpawnTimestamp) {
+    game.createGreenCripto(state.green);
+    state.green.nextSpawnTimestamp = timestamp + Math.random() * state.green.maxSpawnInterval;
+
+}
+
+
+let greenCriptorElement = document.querySelectorAll('.green-cripto');
+greenCriptorElement.forEach(cripto => {
+    let startY = parseInt(cripto.style.top);
+    if(detectCollision(supermanElement,cripto)){
+      state.superman.speed = 3;
+
+      setTimeout(() => {
+        state.superman.speed = 7;
+      },'3000')
+      cripto.remove();
+
+    } 
+   startY < game.gameScreen.offsetHeight ? 
+   cripto.style.top = startY + state.green.speed + 'px' :
+   cripto.remove();
+ 
+  
+});
+
+ // Red Cripto
+
+ if (timestamp > state.red.nextSpawnTimestamp) {
+  game.createRedCripto(state.red);
+  state.red.nextSpawnTimestamp = timestamp + Math.random() * state.red.maxSpawnInterval;
+
+}
+
+
+let redCriptorElement = document.querySelectorAll('.red-cripto');
+redCriptorElement.forEach(cripto => {
+    let startY = parseInt(cripto.style.top);
+    if(detectCollision(supermanElement,cripto)){
+      state.superman.speed = 10;
+      state.laser.speed =30;
+
+      setTimeout(() => {
+        state.superman.speed = 7;
+        state.laser.speed = 15;
+
+      },'3000')
+      cripto.remove();
+
+    } 
+   startY < game.gameScreen.offsetHeight ? 
+   cripto.style.top = startY + state.red.speed + 'px' :
+   cripto.remove();
+ 
+  
+});
+
+
+  // Robots
   if (timestamp > state.robotStats.nextSpawnTimestamp) {
     game.createRobots(state.robotStats);
     state.robotStats.nextSpawnTimestamp =
@@ -80,7 +135,8 @@ if(state.score ===  1000){
    let robotElements = document.querySelectorAll('.robot');
   document.querySelectorAll(".robot").forEach((robot) => {
     let startX = parseInt(robot.style.left);
-    if(detectCollision(supermanElement,robot,game)){
+
+    if(detectCollision(supermanElement,robot)){
         state.superman.health -= 10;
         robot.remove();
         
@@ -89,7 +145,9 @@ if(state.score ===  1000){
        
    }
 
-    startX > 0 ? robot.style.left = startX - state.robotStats.speed + "px" : robot.remove();
+    startX > 0 ? 
+    robot.style.left = startX - state.robotStats.speed + "px" : 
+    robot.remove();
   
     
   });

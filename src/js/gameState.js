@@ -22,12 +22,30 @@ function initState(){
            speed:2,
         },
         clouds:{
-            width:250,
+            width:200,
             height:200,
             nextSpawnTimestamp:0,
-            maxSpawnInterval:4000,
+            maxSpawnInterval:500,
             speed:4,
         },
+          green:{
+            width: 54,
+            height: 43,
+            nextSpawnTimestamp: 10000,
+            maxSpawnInterval: 15000,
+            startInterval: 15000,
+            speed: 3,
+         },
+
+         red:{
+            width: 54,
+            height: 43,
+            nextSpawnTimestamp: 500,
+            maxSpawnInterval: 15000,
+            startInterval: 15000,
+            speed: 1.5,
+         },
+
 
         laser: {
               width: 90,

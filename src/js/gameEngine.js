@@ -47,27 +47,31 @@ if(state.score ===  1000){
   
 
    if(state.keys.Space){
+ 
 
      if(timestamp > state.laser.nextSpawnTimestamp){
         game.createLaserBlast(superman, state.laser);
         state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
      }
+   } else {
+    game.supermanElement.style.backgroundImage = 'url("./img/superman-stand.png")';
+
    }
      // Clouds
-     if (timestamp > state.clouds.nextSpawnTimestamp) {
-      game.createCloud(state.clouds);
-      state.clouds.nextSpawnTimestamp = timestamp + Math.random() * state.clouds.maxSpawnInterval;
+  //    if (timestamp > state.clouds.nextSpawnTimestamp) {
+  //     game.createCloud(state.clouds);
+  //     state.clouds.nextSpawnTimestamp = timestamp + Math.random() * state.clouds.maxSpawnInterval;
   
-  }
+  // }
 
  
-  let cloudElement = document.querySelectorAll('.cloud');
-  cloudElement.forEach(cloud => {
-      let startX = parseInt(cloud.style.left);
+  // let cloudElement = document.querySelectorAll('.cloud');
+  // cloudElement.forEach(cloud => {
+  //     let startX = parseInt(cloud.style.left);
  
-      startX > 0 ? cloud.style.left = startX - state.clouds.speed + "px" : cloud.remove();
+  //     startX > 0 ? cloud.style.left = startX - state.clouds.speed + "px" : cloud.remove();
       
-  });
+  // });
 
  // Green Cripto
   if (timestamp > state.green.nextSpawnTimestamp) {

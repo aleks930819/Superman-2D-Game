@@ -7,7 +7,7 @@ function initState(){
         killScore:10,
         superman: {
             width: 250,
-            height: 80,
+            height: 250,
             startX:100,
             startY:200,
             speed:7,

@@ -40,7 +40,8 @@ function initGameObject() {
      let laserElement  = document.createElement("div");
      laserElement.classList.add('laser');
      laserElement.style.left = superman.startX + (superman.width - 105) + "px";
-     laserElement.style.top = superman.startY + superman.height / 15 + "px";
+     laserElement.style.top = superman.startY + superman.height / 13 + "px";
+
      laserElement.style.width = laser.width + "px";
      laserElement.style.height = laser.height + "px";
 
@@ -53,15 +54,15 @@ function initGameObject() {
 
 
     
-    createCloud(stats) {
-      const cloudElement = document.createElement('div');
-      cloudElement.classList.add('cloud');
-      cloudElement.style.width = stats.width + 'px';
-      cloudElement.style.height = stats.height + 'px';
-      cloudElement.style.left = gameScreen.offsetWidth + 'px';
-       cloudElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight / 3 - stats.height)) + 'px';
-      gameScreen.appendChild(cloudElement);
-  },
+  //   createCloud(stats) {
+  //     const cloudElement = document.createElement('div');
+  //     cloudElement.classList.add('cloud');
+  //     cloudElement.style.width = stats.width + 'px';
+  //     cloudElement.style.height = stats.height + 'px';
+  //     cloudElement.style.left = gameScreen.offsetWidth + 'px';
+  //      cloudElement.style.top = Math.floor(Math.random() * (gameScreen.offsetHeight / 3 - stats.height)) + 'px';
+  //     gameScreen.appendChild(cloudElement);
+  // },
    
    createGreenCripto(stats) {
     const greenCriptorElement = document.createElement('div');

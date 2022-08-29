@@ -1,8 +1,5 @@
 @import url('https://fonts.googleapis.com/css?family=Press+Start+2P&display=swap');
-:root{
-    --color-sky:#55CEFF;
-    --color-land:#2e5d24;
-}
+
 
 * {
     margin: 0;
@@ -61,7 +58,6 @@ body{
 
 .game-screen{
     background-image: url('../img/background.jpg');
-    /* background-color: var(--color-sky); */
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
@@ -83,7 +79,7 @@ body{
  .superman{
 
     position: absolute;
-    background-image: url('../img/superman-stand-2.png');
+    background-image: url('../img/superman-stand.png');
     background-size: cover;
 }
 
@@ -151,3 +147,25 @@ body{
     background-size: contain;
     background-repeat: no-repeat;
 }
+
+
+    .superman-blink{
+
+        position: absolute;
+        background-image: url('../img/superman-stand.png');
+        background-size: cover;
+        animation: blink .1s step-start infinite;
+    }
+   
+
+  
+  @keyframes blink {
+    0% { opacity: 1;
+     }
+    50% {
+      opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+  }

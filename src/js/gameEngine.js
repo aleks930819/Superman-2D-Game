@@ -8,7 +8,7 @@ function gameLoop(state, game, timestamp) {
   const { supermanElement } = game;
   game.scoreScreen.textContent = `${state.score}PTS.`;
   game.healthScreen.textContent = `${state.superman.health}HP`;
-  game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score.toFixed(0)}pts.</h2>`;
+  game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score}pts.</h2>`;
   game.levelScreen.textContent = `${state.level}LV`;
   
   // Level's state
@@ -104,14 +104,14 @@ function gameLoop(state, game, timestamp) {
   if(state.keys.Space){
   
 
-    
+   
     
     if(timestamp > state.laser.nextSpawnTimestamp){
       game.createLaserBlast(superman, state.laser);
       state.laser.nextSpawnTimestamp = timestamp + state.laser.firRate;
     }
    } else {
-    game.supermanElement.style.backgroundImage = 'url("./img/superman-stand.png")';
+    // game.supermanElement.style.backgroundImage = 'url("./img/superman-stand.png")';
 
    }
   
@@ -188,6 +188,15 @@ redCriptorElement.forEach(cripto => {
     let startX = parseInt(robot.style.left);
 
     if(detectCollision(supermanElement,robot)){
+      supermanElement.classList.remove('superman')
+      supermanElement.classList.add('superman-blink')
+    
+
+
+      setTimeout(() => {
+      supermanElement.classList.remove('superman-blink')
+      supermanElement.classList.add('superman')
+      },'200');
         state.superman.health -= 10;
         robot.remove();
        

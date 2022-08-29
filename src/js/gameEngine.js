@@ -33,6 +33,9 @@ function gameLoop(state, game, timestamp) {
   if(state.score === 750){
     state.level = 4;
     state.robotStats.speed = 4;
+    state.robotStats.width = 140 ;
+    state.robotStats.height = 120;
+
     
   }
   
@@ -42,6 +45,55 @@ function gameLoop(state, game, timestamp) {
     state.robotStats.speed = 6;
     
   }
+
+  if(state.score ===  1250){
+    state.level = 6;
+    state.robotStats.speed = 6.5;
+    state.robotStats.width = 160;
+    state.robotStats.height = 140;
+
+    
+  }
+  
+  if(state.score ===  1750){
+    state.level = 7;
+    state.robotStats.speed = 7;
+    state.robotStats.width = 180;
+    state.robotStats.height = 160;
+
+    
+  }
+
+  if(state.score ===  2000){
+    state.level = 8;
+    state.robotStats.speed = 7.5;
+    state.robotStats.width = 180;
+    state.robotStats.height = 160;
+
+    
+  }
+
+  if(state.score ===  2500){
+    state.level = 9;
+    state.robotStats.speed = 7.5;
+    state.robotStats.width = 200;
+    state.robotStats.height = 180;
+
+  }
+  
+  
+  if(state.score ===  3000){
+    state.level = 10;
+    state.robotStats.speed = 8;
+    state.robotStats.width = 200;
+    state.robotStats.height = 180;
+
+  }
+  
+  
+  
+  
+  
   
   
   

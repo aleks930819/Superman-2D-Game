@@ -4,8 +4,9 @@ function start(state, game) {
 }
 
 function gameLoop(state, game, timestamp) {
-  const { superman } = state;
-  const { supermanElement } = game;
+  const { superman} = state;
+  const { supermanElement} = game;
+
   game.scoreScreen.textContent = `${state.score}PTS.`;
   game.healthScreen.textContent = `${state.superman.health}HP`;
   game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score}pts.</h2>`;
@@ -14,7 +15,7 @@ function gameLoop(state, game, timestamp) {
   // Level's state
   
   if(state.score === 250){
-    state.level = 2;
+    state.level = 2
     state.robotStats.speed = 3;
     state.robotStats.width = 120 ;
     state.robotStats.height = 100;
@@ -31,7 +32,7 @@ function gameLoop(state, game, timestamp) {
   
   
   if(state.score === 750){
-    state.level = 4;
+   state.level = 4;
     state.robotStats.speed = 4;
     state.robotStats.width = 140 ;
     state.robotStats.height = 120;
@@ -190,9 +191,6 @@ redCriptorElement.forEach(cripto => {
     if(detectCollision(supermanElement,robot)){
       supermanElement.classList.remove('superman')
       supermanElement.classList.add('superman-blink')
-    
-
-
       setTimeout(() => {
       supermanElement.classList.remove('superman-blink')
       supermanElement.classList.add('superman')

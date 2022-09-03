@@ -6,8 +6,8 @@ function initState(){
         level:1,
         killScore:10,
         superman: {
-            width: 150,
-            height: 220,
+            width: 189,
+            height: 250,
             startX:100,
             startY:200,
             speed:7,
@@ -37,7 +37,7 @@ function initState(){
             nextSpawnTimestamp: 15000,
             maxSpawnInterval: 15000,
             startInterval: 15000,
-            speed: 1.5,
+            speed: 3.5,
          },
 
 

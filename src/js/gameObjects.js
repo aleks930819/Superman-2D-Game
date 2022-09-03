@@ -37,7 +37,7 @@ function initGameObject() {
      let laserElement  = document.createElement("div");
      laserElement.classList.add('laser');
      laserElement.style.left = superman.startX + (superman.width - 55) + "px";
-     laserElement.style.top = superman.startY + superman.height / 13 + "px";
+     laserElement.style.top = superman.startY + superman.height / 200 + "px";
 
      laserElement.style.width = laser.width + "px";
      laserElement.style.height = laser.height + "px";

@@ -9,7 +9,12 @@ function gameLoop(state, game, timestamp) {
 
   game.scoreScreen.textContent = `${state.score}PTS.`;
   game.healthScreen.textContent = `${state.superman.health}HP`;
-  game.gameOverScreen.innerHTML = `<h2>Game Over!<br> Score:${state.score}pts.</h2>`;
+
+  game.gameOverScreen.innerHTML = `<div class="game-over-text">
+  <p>Game Over!</p>
+  <p>Score:${state.score} pts</p>
+
+</div>`;
   game.levelScreen.textContent = `${state.level}LV`;
 
   // Level's state

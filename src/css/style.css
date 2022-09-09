@@ -105,8 +105,9 @@ body{
     top:10px;
     right:10px;
     font-size: 5rem;
-    border: 7px solid black;
+    border: 7px solid white;
     padding: 2rem 2rem;
+    color:white;
 }
 
 .health{
@@ -114,16 +115,20 @@ body{
     top:10px;
     left:10px;
     font-size: 5rem;
-    border: 7px solid black;
+    border: 7px solid white;
     padding: 2rem 2rem;
+    color:white;
+
 }
 .level{
     position: absolute;
     top:1rem;
-    left:70rem;
+    left:66rem;
     font-size: 5rem;
-    border: 7px solid black;
+    border: 7px solid white;
     padding: 2rem 2rem;
+    color:white;
+
 
 }
 .game-over{
@@ -131,7 +136,7 @@ body{
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-image: url('../assets/background.jpg');
+    background-image: url('../assets/_sample_abandon.png');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
@@ -143,7 +148,13 @@ body{
     text-shadow: 3px 3px #000;
 
 }
-
+.game-over-text{
+  
+   font-size: 4rem;
+}
+.game-over-text p{
+    padding-bottom: 2rem;
+}
 .green-cripto{
     position: absolute;
     background-image: url('../assets/green-cripto.png');

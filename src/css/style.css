@@ -20,11 +20,11 @@ body{
 }
 .start-game{
     position: relative;
-    background-image: url('../img/logo3.jpg');
+    background-image: url('../assets/logo3.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
-    background-position-y: -43rem;
+    background-position-y: -40rem;
     width: 100vw;
     height: 100vh;
     text-transform: uppercase;
@@ -45,7 +45,8 @@ body{
 .start-game h1{
  position: absolute;
  top:50%;
- left:30%;
+ left:50%;
+ transform: translate(-50%, -50%);
  text-shadow: 3px 3px #000;
 
 
@@ -57,17 +58,20 @@ body{
 
 
 .game-screen{
-    background-image: url('../img/background.jpg');
+    background-image: url('../assets/_sample_abandon.png');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
     background-size: cover;
-
+}
+.img img{
+    width: 100vw;
+    height: 100vh;
 }
 
 .robot{
     position: absolute;
-    background-image: url('../img/robot.png');
+    background-image: url('../assets/robot.png');
     background-size: contain;
     background-repeat: no-repeat;
  
@@ -80,7 +84,7 @@ body{
     width:190px;
     height:250px;
     position: absolute;
-    background: transparent url('../img/imgonline-com-ua-resize-Mp2ndNQ9uBvPPc.png') 0 0 no-repeat;
+    background: transparent url('../assets/imgonline-com-ua-resize-Mp2ndNQ9uBvPPc.png') 0 0 no-repeat;
     animation: flying .9s steps(2) infinite
 }
 
@@ -92,7 +96,7 @@ body{
 
 .laser{
     position:absolute;
-    background-image: url('../img/image.png');
+    background-image: url('../assets/image.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -127,7 +131,7 @@ body{
     text-align: center;
     justify-content: center;
     align-items: center;
-    background-image: url('../img/background.jpg');
+    background-image: url('../assets/background.jpg');
     width: 100vw;
     height: 100vh;
     background-repeat: no-repeat;
@@ -142,14 +146,14 @@ body{
 
 .green-cripto{
     position: absolute;
-    background-image: url('../img/green-cripto.png');
+    background-image: url('../assets/green-cripto.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
 
 .red-cripto{
     position: absolute;
-    background-image: url('../img/red-cripto.png');
+    background-image: url('../assets/red-cripto.png');
     background-size: contain;
     background-repeat: no-repeat;
 }
@@ -158,7 +162,7 @@ body{
     .superman-blink{
 
         position: absolute;
-        background-image: url('../img/superman-stand.png');
+        background-image: url('../assets/superman-stand.png');
         background-size: cover;
         animation: blink .1s step-start infinite;
     }

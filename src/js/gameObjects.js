@@ -87,6 +87,8 @@ function initGameObject() {
         gameScreen.appendChild(robotElement);
            return robotElement;
     },
+
+
  
   
   };

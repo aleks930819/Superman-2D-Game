@@ -1,7 +1,7 @@
 
 function initState(){
     const state = {
-        gameover:false,
+        gameOver:false,
         score:0,
         level:1,
         killScore:10,
@@ -21,7 +21,7 @@ function initState(){
            maxSpawnInterval:1500,
            speed:2,
         },
-       
+  
           green:{
             width: 54,
             height: 43,

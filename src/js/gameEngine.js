@@ -11,14 +11,16 @@ function gameLoop(state, game, timestamp) {
   game.healthScreen.textContent = `${state.superman.health}HP`;
 
   game.gameOverScreen.innerHTML = `<div class="game-over-text">
-  <p>Game Over!</p>
-  <p>Score:${state.score} pts</p>
+  
+                <p>Game Over!</p>
+                <p>Score:${state.score} pts</p>
+               <h3 class="play-again">Play again</h3>
 
+              
 </div>`;
   game.levelScreen.textContent = `${state.level}LV`;
 
   // Level's state
-  
 
 
   if (state.score === 250) {
@@ -192,8 +194,6 @@ function gameLoop(state, game, timestamp) {
   supermanElement.style.bottom = superman.startX + "px";
   supermanElement.style.top = superman.startY + "px";
 
-  
-   
   if (state.superman.health === 0) {
     game.gameScreen.classList.add("hidden");
     game.gameOverScreen.classList.remove("hidden");

@@ -17,6 +17,7 @@ function initGameObject() {
     gameOverScreen,
     gameOverScreenText,
     levelScreen,
+    
 
     
     createSuperman(initialState) {

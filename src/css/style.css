@@ -20,7 +20,9 @@ body{
 }
 .start-game{
     position: relative;
-    background-image: url('../assets/logo3.jpg');
+    background-image: url('../assets/output-onlinepngtools\ \(1\).png');
+
+    /* background-color: blue; */
     background-repeat: no-repeat;
     background-size: cover;
     object-fit: cover;
@@ -36,7 +38,6 @@ body{
   width: 100vw;
     height: 100vh; 
     position: relative;
-
     
 }
 
@@ -44,13 +45,40 @@ body{
 
 .start-game h1{
  position: absolute;
- top:50%;
+ top:85%;
  left:50%;
  transform: translate(-50%, -50%);
  text-shadow: 3px 3px #000;
 
-
 }
+
+.start-game span img{
+    width: 5rem;
+    padding-right: 2.5rem;
+}
+
+.instructions{
+    display: flex;
+    flex-direction: column;
+    gap:2rem;
+    justify-content: center;
+    align-items: center;
+    margin-top:-28rem;
+}
+
+.instructions-keys{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    padding-top: 2rem;
+}
+
+
+.instructions-keys .arrow{
+    width: 6.5rem;
+}
+
+
 
 .hidden{
     display: none;

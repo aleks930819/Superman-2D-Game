@@ -191,6 +191,9 @@ function gameLoop(state, game, timestamp) {
   supermanElement.style.right = superman.startX + "px";
   supermanElement.style.bottom = superman.startX + "px";
   supermanElement.style.top = superman.startY + "px";
+
+  
+   
   if (state.superman.health === 0) {
     game.gameScreen.classList.add("hidden");
     game.gameOverScreen.classList.remove("hidden");

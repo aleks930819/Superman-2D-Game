@@ -17,6 +17,8 @@ function initGameObject() {
     gameOverScreen,
     gameOverScreenText,
     levelScreen,
+
+    
     createSuperman(initialState) {
       let supermanElement = document.createElement("div");
       supermanElement.classList.add("superman");
